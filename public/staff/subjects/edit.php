@@ -9,7 +9,20 @@ if($test == '404'){
     error_500();
 }elseif ($test == 'redirect'){
     redirect_to(url_for('/staff/subjects/index.php'));
-    }
+}
+
+$id = $_GET['id'];
+
+if(is_post_request()){
+    //Handle form values sent by new.php
+
+    $menu_name = $_POST['menu_name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    $visible = $_POST['visible'] ?? '';
+
+}
+
+
 ?>
 
 
@@ -22,7 +35,6 @@ if($test == '404'){
 
     <div class="subject new">
         <h1>Edit Subject</h1>
-
         <form action="" method="post">
             <dl>
                 <dt>Menu Name</dt>
@@ -35,7 +47,7 @@ if($test == '404'){
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
-                        <option value="4">4</option>
+                        <option value="4">4</option>2
                     </select>
                 </dd>
             </dl>
@@ -50,9 +62,7 @@ if($test == '404'){
                 <input type="submit" value="Edit Subject" />
             </div>
         </form>
-
     </div>
-
 </div>
 
 <?php include(SHARED_PATH . '/staff_footer.php'); ?>
